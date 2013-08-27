@@ -4,3 +4,4 @@
 .project
 *.class
 target/
+*.swp

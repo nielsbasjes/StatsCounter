@@ -8,9 +8,19 @@ This class is a Writable (Hadoop) that is capable of aggregating basic statistic
 The advantages of this implementation:
 
 - It allows serializing the underlying data into only 40 bytes (fixed size!)
-- Actually implements the Associative and Commutativity properties of the underlying operations (including the variance and standard deviation!).
 - Implements the Writable interface of Hadoop to allow easy implementation in a Hadoop job. 
+- Actually implements the Associative and Commutativity properties of the underlying operations (including the variance and standard deviation!).
 
+This last point means that these all result in the same answer for all mentioned statistics:
+
+- 1+2+3+4
+- (1+2)+3+4
+- 1+(2+3)+4
+- (2+3)+(4+1)
+- (4+2)+(3+1)
+etc.
+
+So it doens't matter how the data is partitioned because the end result will be the correct value.
 Thus efficiently allows for doing distributed aggregation of petabyte size datasets.
 
 Based upon:

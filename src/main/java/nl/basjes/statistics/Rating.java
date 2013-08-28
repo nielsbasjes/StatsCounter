@@ -16,6 +16,8 @@
 
 package nl.basjes.statistics;
 
+import java.text.DecimalFormat;
+
 /**
  * This Comparable Rating implementation is based upon:
  * http://stats.stackexchange.com/questions/15979/how-to-find-confidence-intervals-for-ratings
@@ -49,14 +51,12 @@ package nl.basjes.statistics;
  * 
  */
 public class Rating extends Counter implements Comparable<Rating> {
-    private double lower;
-    private double upper;
+    private double globalMean;
 
     // ------------------------------------------
 
     public Rating(double lower, double upper) {
-        this.lower = lower;
-        this.upper = upper;
+        globalMean = lower + ((upper - lower) / 2.0); // Global 'mean' guestimate
     }
 
     // ------------------------------------------
@@ -71,21 +71,26 @@ public class Rating extends Counter implements Comparable<Rating> {
             return cachedBayesianRating;
         }
 
-        double R = getMean();
-        double C = lower + ((upper - lower) / 2.0); // Global 'mean' guestimate
-
-        // Special case: we have no ratings at all
-        if (Double.isNaN(R)) {
-            return C;
-        }
-
         double m = 1.0; // Pick a value ... any value ...
         double w = v / (v + m);
-        cachedBayesianRating = (w * R) + ((1 - w) * C);
+        cachedBayesianRating = (w * getMeanRating()) + ((1 - w) * globalMean);
         cachedN = v;
         return cachedBayesianRating;
     }
 
+    // ------------------------------------------
+
+    public double getMeanRating() {
+        double R = getMean();
+
+        // Special case: we have no ratings at all
+        if (Double.isNaN(R)) {
+            return globalMean;
+        }
+        return R;
+    }
+    
+    
     // ------------------------------------------
 
     @Override
@@ -94,19 +99,28 @@ public class Rating extends Counter implements Comparable<Rating> {
         double obr = o.getBayesianRating();
         double diff = br - obr;
         if (diff > 0) {
-            return 1;
+            return -1;
         }
         if (diff < 0) {
-            return -1;
+            return 1;
         }
         return 0;
     }
 
     // ------------------------------------------
 
+    private DecimalFormat df = new DecimalFormat("0.00");
+    private String formatDouble(double d){
+        if (Double.isNaN(d)){
+            return "NaN";
+        }
+        return df.format(d);
+    }
+    
     @Override
     public String toString() {
-        return "{ Mean: " + getMean() + " ,Rating = " + getBayesianRating() + " }";
+        return "{ Rating: " + formatDouble(getMeanRating()) + " ("+getN()+") ,"
+             + " SortedBy " + formatDouble(getBayesianRating()) + " }";
     }
 
     // ------------------------------------------

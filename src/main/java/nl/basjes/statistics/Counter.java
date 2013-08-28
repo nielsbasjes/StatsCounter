@@ -30,7 +30,7 @@ import org.apache.hadoop.io.Writable;
  * 2) Actually implements the Associative and Commutativity properties of the underlying operations.
  * Thus efficiently allows for doing distributed aggregation of petabyte size datasets.
  */
-public final class Counter implements Writable {
+public class Counter implements Writable {
 
     private long   n;   // Count of values
     private double m2;  // Second moment of values that have been added

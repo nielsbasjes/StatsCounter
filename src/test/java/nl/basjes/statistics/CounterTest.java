@@ -60,8 +60,8 @@ public class CounterTest extends TestCase {
         assertEquals(BAD_MEAN    , Double.NaN, c1.getMean()    , MAX_ERROR);
         assertEquals(BAD_MAX     , Double.NaN, c1.getMax()     , MAX_ERROR);
         assertEquals(BAD_SUM     , Double.NaN, c1.getSum()     , MAX_ERROR);
-        assertEquals(BAD_VARIANCE, Double.NaN, c1.getVariance(), MAX_ERROR);
         assertEquals(BAD_STDDEV  , Double.NaN, c1.getStdDev()  , MAX_ERROR);
+        assertEquals(BAD_VARIANCE, Double.NaN, c1.getVariance(), MAX_ERROR);
         assertEquals(BAD_STDDEV  , Double.NaN, c1.getStdDev()  , MAX_ERROR);
 
         final Counter nullCounter = null;
@@ -71,8 +71,8 @@ public class CounterTest extends TestCase {
         assertEquals(BAD_MEAN    , Double.NaN, c1.getMean()    , MAX_ERROR);
         assertEquals(BAD_MAX     , Double.NaN, c1.getMax()     , MAX_ERROR);
         assertEquals(BAD_SUM     , Double.NaN, c1.getSum()     , MAX_ERROR);
-        assertEquals(BAD_VARIANCE, Double.NaN, c1.getVariance(), MAX_ERROR);
         assertEquals(BAD_STDDEV  , Double.NaN, c1.getStdDev()  , MAX_ERROR);
+        assertEquals(BAD_VARIANCE, Double.NaN, c1.getVariance(), MAX_ERROR);
         assertEquals(BAD_STDDEV  , Double.NaN, c1.getStdDev()  , MAX_ERROR);
         
     }
@@ -91,8 +91,8 @@ public class CounterTest extends TestCase {
         assertEquals(BAD_MEAN    ,  10       , c1.getMean()    , MAX_ERROR);
         assertEquals(BAD_MAX     ,  10       , c1.getMax()     , MAX_ERROR);
         assertEquals(BAD_SUM     ,  10       , c1.getSum()     , MAX_ERROR);
-        assertEquals(BAD_VARIANCE,   0       , c1.getVariance(), MAX_ERROR);
         assertEquals(BAD_STDDEV  ,   0       , c1.getStdDev()  , MAX_ERROR);
+        assertEquals(BAD_VARIANCE,   0       , c1.getVariance(), MAX_ERROR);
         assertEquals(BAD_STDDEV  ,   0       , c1.getStdDev()  , MAX_ERROR);
 
         c1.increment(20);
@@ -102,8 +102,8 @@ public class CounterTest extends TestCase {
         assertEquals(BAD_MEAN    ,  15       , c1.getMean()    , MAX_ERROR);
         assertEquals(BAD_MAX     ,  20       , c1.getMax()     , MAX_ERROR);
         assertEquals(BAD_SUM     ,  30       , c1.getSum()     , MAX_ERROR);
-        assertEquals(BAD_VARIANCE,  50       , c1.getVariance(), MAX_ERROR);
         assertEquals(BAD_STDDEV  ,   7.07107 , c1.getStdDev()  , MAX_ERROR);
+        assertEquals(BAD_VARIANCE,  50       , c1.getVariance(), MAX_ERROR);
         assertEquals(BAD_STDDEV  ,   7.07107 , c1.getStdDev()  , MAX_ERROR);
 
         c1.increment(70);
@@ -113,8 +113,8 @@ public class CounterTest extends TestCase {
         assertEquals(BAD_MEAN    ,  33.33333 , c1.getMean()    , MAX_ERROR);
         assertEquals(BAD_MAX     ,  70       , c1.getMax()     , MAX_ERROR);
         assertEquals(BAD_SUM     , 100       , c1.getSum()     , MAX_ERROR);
-        assertEquals(BAD_VARIANCE,1033.33333 , c1.getVariance(), MAX_ERROR);
         assertEquals(BAD_STDDEV  ,  32.14550 , c1.getStdDev()  , MAX_ERROR);
+        assertEquals(BAD_VARIANCE,1033.33333 , c1.getVariance(), MAX_ERROR);
         assertEquals(BAD_STDDEV  ,  32.14550 , c1.getStdDev()  , MAX_ERROR);
     }
 
@@ -144,8 +144,8 @@ public class CounterTest extends TestCase {
         assertEquals(BAD_MEAN    ,    2     , c1.getMean()    , MAX_ERROR);
         assertEquals(BAD_MAX     ,    3     , c1.getMax()     , MAX_ERROR);
         assertEquals(BAD_SUM     ,    6     , c1.getSum()     , MAX_ERROR);
-        assertEquals(BAD_VARIANCE,    1     , c1.getVariance(), MAX_ERROR);
         assertEquals(BAD_STDDEV  ,    1     , c1.getStdDev()  , MAX_ERROR);
+        assertEquals(BAD_VARIANCE,    1     , c1.getVariance(), MAX_ERROR);
         assertEquals(BAD_STDDEV  ,    1     , c1.getStdDev()  , MAX_ERROR);
 
         final Counter c2 = new Counter();
@@ -155,8 +155,8 @@ public class CounterTest extends TestCase {
         assertEquals(BAD_MEAN    ,    0     , c2.getMean()    , MAX_ERROR);
         assertEquals(BAD_MAX     ,    0     , c2.getMax()     , MAX_ERROR);
         assertEquals(BAD_SUM     ,    0     , c2.getSum()     , MAX_ERROR);
-        assertEquals(BAD_VARIANCE,    0     , c2.getVariance(), MAX_ERROR);
         assertEquals(BAD_STDDEV  ,    0     , c2.getStdDev()  , MAX_ERROR);
+        assertEquals(BAD_VARIANCE,    0     , c2.getVariance(), MAX_ERROR);
         assertEquals(BAD_STDDEV  ,    0     , c2.getStdDev()  , MAX_ERROR);
 
         c2.increment(10);
@@ -165,8 +165,8 @@ public class CounterTest extends TestCase {
         assertEquals(BAD_MEAN    ,    5     , c2.getMean()    , MAX_ERROR);
         assertEquals(BAD_MAX     ,   10     , c2.getMax()     , MAX_ERROR);
         assertEquals(BAD_SUM     ,   10     , c2.getSum()     , MAX_ERROR);
-        assertEquals(BAD_VARIANCE,   50     , c2.getVariance(), MAX_ERROR);
         assertEquals(BAD_STDDEV  ,    7.0711, c2.getStdDev()  , MAX_ERROR);
+        assertEquals(BAD_VARIANCE,   50     , c2.getVariance(), MAX_ERROR);
         assertEquals(BAD_STDDEV  ,    7.0711, c2.getStdDev()  , MAX_ERROR);
 
         c2.increment(20);
@@ -175,8 +175,8 @@ public class CounterTest extends TestCase {
         assertEquals(BAD_MEAN    ,   10     , c2.getMean()    , MAX_ERROR);
         assertEquals(BAD_MAX     ,   20     , c2.getMax()     , MAX_ERROR);
         assertEquals(BAD_SUM     ,   30     , c2.getSum()     , MAX_ERROR);
-        assertEquals(BAD_VARIANCE,  100     , c2.getVariance(), MAX_ERROR);
         assertEquals(BAD_STDDEV  ,   10     , c2.getStdDev()  , MAX_ERROR);
+        assertEquals(BAD_VARIANCE,  100     , c2.getVariance(), MAX_ERROR);
         assertEquals(BAD_STDDEV  ,   10     , c2.getStdDev()  , MAX_ERROR);
 
         c1.increment(c2);
@@ -184,6 +184,7 @@ public class CounterTest extends TestCase {
         assertEquals(BAD_MIN     ,    0     , c1.getMin()     , MAX_ERROR);
         assertEquals(BAD_MEAN    ,    6     , c1.getMean()    , MAX_ERROR);
         assertEquals(BAD_MAX     ,   20     , c1.getMax()     , MAX_ERROR);
+        assertEquals(BAD_STDDEV  ,    7.7201, c1.getStdDev()  , MAX_ERROR);
         assertEquals(BAD_VARIANCE,   59.6   , c1.getVariance(), MAX_ERROR);
         assertEquals(BAD_STDDEV  ,    7.7201, c1.getStdDev()  , MAX_ERROR);
 
@@ -195,6 +196,7 @@ public class CounterTest extends TestCase {
         assertEquals(BAD_MIN     ,    0     , c1.getMin()     , MAX_ERROR);
         assertEquals(BAD_MEAN    ,    6     , c1.getMean()    , MAX_ERROR);
         assertEquals(BAD_MAX     ,   20     , c1.getMax()     , MAX_ERROR);
+        assertEquals(BAD_STDDEV  ,    7.3608, c1.getStdDev()  , MAX_ERROR);
         assertEquals(BAD_VARIANCE,   54.1818, c1.getVariance(), MAX_ERROR);
         assertEquals(BAD_STDDEV  ,    7.3608, c1.getStdDev()  , MAX_ERROR);
 
@@ -208,6 +210,7 @@ public class CounterTest extends TestCase {
         assertEquals(BAD_MIN     ,    0     , c1.getMin()     , MAX_ERROR);
         assertEquals(BAD_MEAN    ,    6     , c1.getMean()    , MAX_ERROR);
         assertEquals(BAD_MAX     ,   20     , c1.getMax()     , MAX_ERROR);
+        assertEquals(BAD_STDDEV  ,    7.1990, c1.getStdDev()  , MAX_ERROR);
         assertEquals(BAD_VARIANCE,   51.8261, c1.getVariance(), MAX_ERROR);
         assertEquals(BAD_STDDEV  ,    7.1990, c1.getStdDev()  , MAX_ERROR);
     }
@@ -465,6 +468,7 @@ public class CounterTest extends TestCase {
         assertEquals(BAD_MEAN    , REFERENCE_COUNTER.getMean()     , c.getMean()    , MAX_ERROR);
         assertEquals(BAD_MAX     , REFERENCE_COUNTER.getMax()      , c.getMax()     , MAX_ERROR);
         assertEquals(BAD_SUM     , REFERENCE_COUNTER.getSum()      , c.getSum()     , MAX_ERROR);
+        assertEquals(BAD_STDDEV  , REFERENCE_COUNTER.getStdDev()   , c.getStdDev()  , MAX_ERROR);
         assertEquals(BAD_VARIANCE, REFERENCE_COUNTER.getVariance() , c.getVariance(), MAX_ERROR);
         assertEquals(BAD_STDDEV  , REFERENCE_COUNTER.getStdDev()   , c.getStdDev()  , MAX_ERROR);
         return true;

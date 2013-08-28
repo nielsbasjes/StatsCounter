@@ -247,8 +247,8 @@ public class Counter implements Writable {
      * @return
      */
     public double getStdDev() {
-        if (Double.isNaN(stddev)) {
-            stddev = Math.sqrt(variance);
+        if (mustRecalcVariance || Double.isNaN(stddev)) {
+            stddev = Math.sqrt(getVariance());
         }
         return stddev;
     }

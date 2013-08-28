@@ -19,7 +19,7 @@ package nl.basjes.statistics;
 import java.text.DecimalFormat;
 
 /**
- * This Comparable Rating implementation is based upon:
+ * This Comparable Rating implementation simply implements:
  * http://stats.stackexchange.com/questions/15979/how-to-find-confidence-intervals-for-ratings
  * 
  * Bayesian Approach I: Normal Distribution over Ratings 
@@ -97,29 +97,30 @@ public class Rating extends Counter implements Comparable<Rating> {
     public int compareTo(Rating o) {
         double br = getBayesianRating();
         double obr = o.getBayesianRating();
-        double diff = br - obr;
+        double diff = obr - br;
         if (diff > 0) {
-            return -1;
+            return 1;
         }
         if (diff < 0) {
-            return 1;
+            return -1;
         }
         return 0;
     }
 
     // ------------------------------------------
 
-    private DecimalFormat df = new DecimalFormat("0.00");
+    private DecimalFormat df = new DecimalFormat("0.000");
     private String formatDouble(double d){
         if (Double.isNaN(d)){
-            return "NaN";
+            return " NaN";
         }
         return df.format(d);
     }
     
     @Override
     public String toString() {
-        return "{ Rating: " + formatDouble(getMeanRating()) + " ("+getN()+") ,"
+        return "{ Rating: " + formatDouble(getMeanRating()) + " ("+getN()+"),"
+//             + " (StdDev:"+formatDouble(getStdDev())+"),"
              + " SortedBy " + formatDouble(getBayesianRating()) + " }";
     }
 

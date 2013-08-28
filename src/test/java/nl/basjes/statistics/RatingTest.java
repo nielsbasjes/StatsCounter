@@ -9,6 +9,7 @@ import java.util.List;
 import org.junit.Test;
 
 public class RatingTest {
+
     // ------------------------------------------
 
     @Test
@@ -51,6 +52,8 @@ public class RatingTest {
         manyGoodRatings.increment(5);
         manyGoodRatings.increment(5);
 
+        assertEquals(4.666, manyGoodRatings.getBayesianRating(), 0.001); 
+        
         List<Rating> ratingList = new ArrayList<Rating>();
         ratingList.add(noRatings);
         ratingList.add(fewPoorRatings);
@@ -74,7 +77,7 @@ public class RatingTest {
         assertEquals(fewPoorRatings,  a[4]);
         assertEquals(somePoorRatings, a[5]);
         assertEquals(manyPoorRatings, a[6]);
-        assertEquals("{ Rating: 5.00 (5) , SortedBy 4.67 }", manyGoodRatings.toString());
+        assertEquals("{ Rating: 5.000 (5), SortedBy 4.667 }", manyGoodRatings.toString());
     }
 
     // ------------------------------------------

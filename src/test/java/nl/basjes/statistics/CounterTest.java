@@ -82,7 +82,7 @@ public class CounterTest extends TestCase {
     @Test
     public void testCounterBasics() {
         final Counter c1 = new Counter();
-        assertEquals(BAD_COUNT     ,   0       , c1.getN()                  );
+        assertEquals(BAD_COUNT   ,   0       , c1.getN()                  );
 
         c1.increment(10);
 
